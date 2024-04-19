@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Datos</title>
+</head>
+<body>
+    <h1>Mostrar Datos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Categories</th>
+                <th>Created At</th>
+                <th>Icon URL</th>
+                <th>Updated At</th>
+                <th>URL</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.categories|join:', ' }}</td>
+                <td>{{ data.created_at }}</td>
+                <td><img src="{{ data.icon_url }}" alt="Icon"></td>
+                <td>{{ data.updated_at }}</td>
+                <td><a href="{{ item.url }}">{{ data.url }}</a></td>
+                <td>{{ data.value }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

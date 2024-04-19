@@ -6,6 +6,54 @@ from django.views import generic
 
 from .models import Choice, Question
 
+
+from django.shortcuts import render
+import json
+from django.conf import settings
+import os
+
+import requests
+
+
+PROJECT_DIR=os.path.dirname(__file__)
+settings.STATIC_ROOT= os.path.join(PROJECT_DIR,'static/')
+
+
+def mostrar_datos(request):
+    # URL de la API
+    api_url = 'https://api.chucknorris.io/jokes/random'
+
+    # Realizar solicitud a la API
+    response = requests.get(api_url)
+    data = []
+    if response.status_code == 200:
+        data = response.json()
+        print(data)
+
+    return render(request, 'polls/mostrar_datos.html', {'data': data})
+
+def rickymorty(request):
+    # URL de la API
+    api_url = 'https://rickandmortyapi.com/api/character/2'
+
+    # Realizar solicitud a la API
+    response = requests.get(api_url)
+    data = []
+    if response.status_code == 200:
+        data = response.json()
+        print(data)
+
+    return render(request, 'polls/testapirick.html', {'data': data})
+
+
+# def mostrar_datos(request):
+#    json_file_path = os.path.join(settings.STATIC_ROOT, 'datos.json')
+#    with open(json_file_path, 'r') as file:
+#        data = json.load(file)
+#
+#    return render(request, 'polls/mostrar_datos.html', {'data': data})
+
+
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"

@@ -8,4 +8,6 @@ urlpatterns = [
     path("<int:pk>/", views.DetailView.as_view(), name="detail"),
     path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),
+    path('mostrar-datos/', views.mostrar_datos, name='mostrar_datos'),
+    path('rickymorty/', views.rickymorty, name='mostrar_datos'),
 ]

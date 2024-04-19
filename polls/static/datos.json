@@ -1,0 +1,9 @@
+
+    {
+        "categories":["movie"],
+        "created_at":"2020-01-05 13:42:29.855523",
+        "icon_url":"https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+        "id":"Y5da3-IRTBurGfuFZgKIRg","updated_at":"2020-01-05 13:42:29.855523",
+        "url":"https://api.chucknorris.io/jokes/Y5da3-IRTBurGfuFZgKIRg",
+        "value":"Scientists created Arnold Schwarzenegger, Sly Stallone, Jean-Claude Van Damme, Vin Diesel, and Hulk Hogan by using urine samples from a toilet Chuck Norris once pissed in."
+    }
