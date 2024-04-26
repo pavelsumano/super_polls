@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-h@+*bodz0*ymbdn47s0_*89xp&_g=qcwc%j-%k=i$(isk!486@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','192.168.1.136']
 
+#ALLOWED_HOSTS = []
+# http://127.0.0.1:8000/polls/   http://192.168.1.136:8000/polls/ http://
 
 # Application definition
 
