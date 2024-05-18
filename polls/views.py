@@ -19,6 +19,30 @@ import requests
 PROJECT_DIR=os.path.dirname(__file__)
 settings.STATIC_ROOT= os.path.join(PROJECT_DIR,'static/')
 
+def calculadora(request):
+    if request.method == 'POST':
+        num1 = float(request.POST.get('num1', ''))
+        num2 = float(request.POST.get('num2', ''))
+        operacion = request.POST.get('operacion', '')
+
+        if operacion == 'suma':
+            resultado = num1 + num2
+        elif operacion == 'resta':
+            resultado = num1 - num2
+        elif operacion == 'multiplicacion':
+            resultado = num1 * num2
+        elif operacion == 'division':
+            if num2 != 0:
+                resultado = num1 / num2
+            else:
+                resultado = 'Error: División por cero'
+        else:
+            resultado = 'Operación no válida'
+
+        return render(request, 'polls/calculadora.html', {'resultado': resultado})
+
+    return render(request, 'polls/calculadora.html')
+
 
 def mostrar_datos(request):
     # URL de la API
@@ -110,5 +134,3 @@ def get_queryset(self):
     return Question.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")[
         :5
     ]
-
-    
