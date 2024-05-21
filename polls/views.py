@@ -27,19 +27,23 @@ def calculadora(request):
 
         if operacion == 'suma':
             resultado = num1 + num2
+            option=' + '
         elif operacion == 'resta':
             resultado = num1 - num2
+            option=' - '
         elif operacion == 'multiplicacion':
             resultado = num1 * num2
+            option = ' * '
         elif operacion == 'division':
             if num2 != 0:
                 resultado = num1 / num2
+                option =' / '
             else:
                 resultado = 'Error: División por cero'
         else:
             resultado = 'Operación no válida'
 
-        return render(request, 'polls/calculadora.html', {'resultado': resultado})
+        return render(request, 'polls/calculadora.html', {'resultado': resultado, 'n1': num1, 'n2':num2, 'operador': option})
 
     return render(request, 'polls/calculadora.html')
 
