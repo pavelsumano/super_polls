@@ -78,10 +78,13 @@ def rick_morty(request):
     data = []
     resultado = False
     if request.method == 'POST':
-        num1 = int(request.POST.get('num1', ''))
+        num1 = request.POST.get('num1', '').strip()
+        if not num1:
+            return render(request, 'polls/rickandmorty.html', { 'data': data, 'resultado': resultado })
+        num1 = int(num1)
         # URL de la API
         api_url = 'https://rickandmortyapi.com/api/character/' + str(num1)
-        print(api_url)
+        # print(api_url)
 
         # Realizar solicitud a la API
         response = requests.get(api_url)
