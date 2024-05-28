@@ -63,7 +63,7 @@ def mostrar_datos(request):
 
 def rickymorty(request):
     # URL de la API
-    api_url = 'https://rickandmortyapi.com/api/character/2'
+    api_url = 'https://rickandmortyapi.com/api/character/5'
 
     # Realizar solicitud a la API
     response = requests.get(api_url)
@@ -74,6 +74,23 @@ def rickymorty(request):
 
     return render(request, 'polls/testapirick.html', {'data': data})
 
+def rick_morty(request):
+    data = []
+    resultado = False
+    if request.method == 'POST':
+        num1 = int(request.POST.get('num1', ''))
+        # URL de la API
+        api_url = 'https://rickandmortyapi.com/api/character/' + str(num1)
+        print(api_url)
+
+        # Realizar solicitud a la API
+        response = requests.get(api_url)
+        if response.status_code == 200:
+            data = response.json()
+            print(data)
+            resultado = True
+
+    return render(request, 'polls/rickandmorty.html', { 'data': data, 'resultado': resultado })
 
 # def mostrar_datos(request):
 #    json_file_path = os.path.join(settings.STATIC_ROOT, 'datos.json')

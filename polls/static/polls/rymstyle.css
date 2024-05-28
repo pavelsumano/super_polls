@@ -1,0 +1,32 @@
+li a {
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+body {
+    background: white url("images/2807801.jpg") no-repeat;
+}
+
+.contenedor {
+  /* background-color: #fafafa; */
+  margin: 1rem;
+  padding: 1rem;
+  /* border: 2px solid #ccc; */
+  /* IMPORTANTE */
+  text-align: center;
+  color:aqua;
+}
+
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border: none ;
+}
+
+img {
+  border-radius: 25% 10%;
+}

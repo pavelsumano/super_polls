@@ -11,4 +11,5 @@ urlpatterns = [
     path('mostrar-datos/', views.mostrar_datos, name='mostrar_datos'),
     path('rickymorty/', views.rickymorty, name='testapirick'),
     path('calculadora/', views.calculadora, name='calculadora'),
+    path('rick_morty/', views.rick_morty, name='rickandmorty'),
 ]

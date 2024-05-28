@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick & Morty</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/rymstyle.css' %}">
+</head>
+<body>
+    <div class = "contenedor">
+    <h1>Rick & Morty</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="num1">Valor del personaje:</label>
+        <input type="text" id="num1" name="num1"><br><br>
+        <input type="submit" value="Mostrar">
+    </form>
+    {% if resultado %}
+    <!-- <div class = "contenedor"> -->
+      <h1>Rick & Morty</h1>
+      <img src="{{ data.image }}" alt="Image">
+      <table>
+      <tr>
+          <th>Dato</th>
+          <th>Valor</th>
+      </tr>
+      <tr>
+          <td>ID</td>
+          <td>{{ data.id }}</td>
+      </tr>
+      <tr>
+          <td>Name</td>
+          <td>{{ data.name }}</td>
+      </tr>
+      <tr>
+          <td>Status</td>
+          <td>{{ data.status }}</td>
+      </tr>
+      <tr>
+          <td>Species</td>
+          <td>{{ data.species }}</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>{{ data.type }}</td>
+      </tr>
+      <tr>
+          <td>Gender</td>
+          <td>{{ data.gender }}</td>
+      </tr>
+      <tr>
+          <td>Origin</td>
+          <td>{{ data.origin }}</td>
+      </tr>
+  </table>
+
+    {% endif %}
+</div>
+</body>
+</html>
